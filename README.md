@@ -8,7 +8,9 @@ Erlebnis-Finder für exodus-hn.de (Webflow). Eingebunden über jsDelivr mit fest
 - `exodus-finder.js` – lesbarer Quelltext
 - `webflow-einbindung.html` – Code für Webflow (Teil A in den Head, Teil B vor </body>)
 
-Aktueller Stand: 1.1.0 (Terminfrage, freie Termine aus dem QuinBook-Shop, Poster-Liste, 7. Person für Firmen am Schließtag).
+Aktueller Stand: 1.2.0 (Terminfrage, freie Termine aus dem QuinBook-Shop, Poster und Gutschein-Bilder aus img/, Poster-Liste, 7. Person für Firmen am Schließtag).
 
 Neue Version: Datei ersetzen, committen und in Webflow die Commit-Kennung im Link austauschen.
 Die feste Kennung sorgt dafür, dass jsDelivr sofort die neue Datei ausliefert.
+
+Bilder: Ordner `img/` (WebP). Der Finder lädt sie automatisch neben `exodus-finder.min.js`. Eigene Bild-Links aus Webflow in `window.EXODUS_FINDER.images` haben Vorrang.
