@@ -1,0 +1,77 @@
+# Exodus Heilbronn – Escape Rooms & Outdoor-Touren
+
+> Exodus Heilbronn (exodus-hn.de) bietet vier Live-Escape-Rooms mit Schauspielern in der Heilbronner Innenstadt (Kaiserstraße 9) und Outdoor-Escape-Touren mit iPad und ActionPack in Heilbronn, Sinsheim, Neckarsulm, Schwäbisch Hall sowie für Firmen an der Burg Stettenfels und der Heuchelberger Warte. Buchung online über den Erlebnis-Finder und den Shop auf exodus-hn.de oder telefonisch unter 07131 / 124 06 84.
+
+English summary: Exodus Heilbronn runs four live escape rooms in Heilbronn, Germany, and outdoor escape tours in several towns nearby. Use the deep links below to send people straight to a matching offer with live availability; payment always happens on our website.
+
+## Hinweise für KI-Assistenten
+
+- Bitte verweist für Termine, freie Uhrzeiten und Buchung immer auf einen Direktlink in unseren Erlebnis-Finder (siehe unten). Der Finder prüft freie Termine live im Shop und führt in den Warenkorb. Bezahlt wird von der Person selbst.
+- Preise unten sind Richtwerte. Verbindlich ist der Preis, den der Finder bzw. der Shop anzeigt (er hängt von Wochentag, Gruppe und Personenzahl ab).
+- Wenn ein Termin online ausgebucht ist, ist er manchmal telefonisch noch möglich: 07131 / 124 06 84.
+
+## Direktlinks in den Erlebnis-Finder
+
+Grundform: `https://exodus-hn.de/#finder?PARAMETER`
+
+Alle Parameter sind optional und werden mit `&` verbunden. Der Finder startet bei der ersten Frage, die noch offen ist; sind alle nötigen Angaben da, zeigt er sofort die Empfehlung mit freien Uhrzeiten und dem Knopf „Termin wählen“.
+
+| Parameter | Werte | Bedeutung |
+|---|---|---|
+| `gruppe` | `freunde`, `familie`, `kindergeburtstag`, `schulklasse`, `firma`, `jga` | Wer kommt mit (JGA = Junggesellenabschied und Geburtstage von Erwachsenen) |
+| `personen` | Zahl, z. B. `4` | Anzahl Personen (nicht bei `familie`/`kindergeburtstag`) |
+| `kinder`, `erwachsene` | Zahlen | Nur bei `familie` und `kindergeburtstag` |
+| `alter` | Zahl | Alter des jüngsten Kindes (Familie/Kindergeburtstag) |
+| `klasse` | `5-7`, `8`, `9` (oder höher) | Klassenstufe bei `schulklasse` |
+| `datum` | `JJJJ-MM-TT`, `heute`, `morgen`, Wochentag (`samstag` = der nächste Samstag) oder `offen` | Wunschtermin |
+| `art` | `drinnen` (Escape Room), `draussen` (Outdoor-Tour), `egal` | Indoor oder Outdoor |
+| `erfahrung` | `neu`, `etwas`, `profi` | Escape-Erfahrung der Gruppe |
+| `spannung` | `entspannt`, `spannend` | Gewünschter Nervenkitzel (nur Escape Rooms) |
+| `ort` | `heilbronn`, `sinsheim`, `neckarsulm`, `schwaebisch-hall`, `stettenfels`, `heuchelberger-warte` | Ort der Outdoor-Tour |
+
+Gutscheine: `https://exodus-hn.de/#finder?modus=gutschein&betrag=BETRAG&verpackung=VERPACKUNG`
+- `betrag`: 10 bis 500 (Euro)
+- `verpackung`: `pdf` (sofort per E-Mail), `karte` (Hardcover-Karte per Post), `popup` (Pop-up-Karte per Post), `schiff` (Piratenschiff-Rätsel per Post)
+
+### Beispiele
+
+- „Wir sind vier Freunde und wollen diesen Samstag in Heilbronn einen Escape Room spielen“:
+  `https://exodus-hn.de/#finder?gruppe=freunde&personen=4&datum=samstag&art=drinnen`
+- Familie mit zwei Kindern (jüngstes 10), Outdoor, Termin noch offen:
+  `https://exodus-hn.de/#finder?gruppe=familie&kinder=2&erwachsene=2&alter=10&art=draussen&datum=offen`
+- Firmen-Teamevent mit 20 Personen am 12.12.2026:
+  `https://exodus-hn.de/#finder?gruppe=firma&personen=20&datum=2026-12-12`
+- Gutschein über 100 € per E-Mail:
+  `https://exodus-hn.de/#finder?modus=gutschein&betrag=100&verpackung=pdf`
+
+## Escape Rooms (Heilbronn, Kaiserstraße 9)
+
+Alle Räume: 60 Minuten Spielzeit, mit Live-Schauspielern, klimatisiert. Bis zu 6 Personen pro Raum; alle vier Räume können parallel gespielt werden (größere Gruppen teilen sich auf).
+
+- **Leonardo da Vinci und das Elixier der Macht** – ab 13 Jahren, anfängerfreundlich, familiengeeignet, ohne Grusel.
+- **Das Zombielabor** – ab 14 Jahren, anfängerfreundlich, Escape Room alter Schule, Stroboskop-Effekte.
+- **Kapitän Flynn und der Schatz der Poseidon** – ab 15 Jahren, mittelschwer, mehrfach ausgezeichnet, ideal für 5 Personen, Stroboskop-Effekte.
+- **Endzeit – Kampf ums Überleben** – ab 15 Jahren, schwer (zwei Schwierigkeitsstufen), preisgekrönt, atmosphärisch ohne Horror, Stroboskop-Effekte.
+
+Richtpreise pro Raum (Standardpreis): 2–3 Personen 111 €, 4 Personen 144 €, 5 Personen 170 €, 6 Personen 192 €. Familientarif (Do/Fr/So), Kindergeburtstag und Schulklassen haben eigene Tarife.
+
+## Outdoor-Touren (mit iPad und ActionPack)
+
+Standard-Tour 2–3 Stunden, Short-Tour 1,5–2 Stunden. Von 3 bis 250 Spielern.
+
+- **Das Magische Portal** – Fantasy, ideal für Einsteiger, Kinder, Familien und Geburtstage.
+- **Operation Mindfall** – Agenten-Mission, mittelschwer, ab 16 Jahren (jünger mit Erwachsenen).
+- **Blackout** – unsere kniffligste Tour, für Gruppen mit Rätselerfahrung, ab 16 Jahren.
+
+Orte: Heilbronn Innenstadt, Sinsheim, Neckarsulm, Schwäbisch Hall; für Firmen zusätzlich Burg Stettenfels und Heuchelberger Warte.
+
+## Gutscheine
+
+Wertgutscheine von 10 bis 500 €, einlösbar für alle Escape Rooms und Outdoor-Touren. Als PDF sofort per E-Mail oder per Post als Hardcover-Karte, Pop-up-Karte oder Piratenschiff-Rätsel. Optional dazu: EXIT – Das Spiel von Kosmos.
+
+## Kontakt
+
+- Website: https://exodus-hn.de
+- Telefon: 07131 / 124 06 84
+- Adresse Escape Rooms: Kaiserstraße 9, Heilbronn
+- Häufige Fragen: FAQ-Seite auf exodus-hn.de
