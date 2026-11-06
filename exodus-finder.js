@@ -83,7 +83,7 @@ function roomOK(r,s){
 }
 function split(n,k){const b=Math.floor(n/k),r=n%k;return Array.from({length:k},(_,i)=>b+(i<r?1:0))}
 function combos(arr,k){if(k===0)return[[]];if(arr.length<k)return[];const[h,...t]=arr;return[...combos(t,k-1).map(c=>[h,...c]),...combos(t,k)]}
-/* Schulklassen: unter der Woche (meist vormittags) höchstens 2 Räume gleichzeitig, am Wochenende alle 4 */
+/* Schulklassen: 3–4 Räume unter der Woche brauchen mehr Vorlauf (Spielleiter), bis 2 Räume oder am Wochenende reichen 5 Stunden */
 const schoolWeekend=s=>!!s.date&&['sa','so'].includes(dayOf(s.date));
 /* Endzeit: Anfänger-Variante für Erstspieler und immer für Schulklassen */
 const endzeitEasy=s=>s.group==='schule'||s.exp==='first';
@@ -97,7 +97,6 @@ function indoorOptions(s){
   let k=Math.ceil(n/6),winter=false;
   if(n>24){ if(g==='firma'&&n<=28&&isWinter(s.date)){k=4;winter=true} else return []; }
   if(g==='schule'&&n<4*k) return [];
-  if(g==='schule'&&k>2&&!schoolWeekend(s)) return [];
   if(rooms.length<k) return [];
   const sizes=winter?split(n,4):split(n,k);
   const out=combos(rooms,k).map(rs=>({type:'in',rooms:rs,sizes,winter,seven:n===7&&g!=='schule'&&!(g==='firma'&&s.day==='momi')}));
@@ -210,7 +209,7 @@ function pricing(c,s){
     if(day==='momi'&&g!=='firma'&&g!=='schule') r.notes.push('Montag bis Mittwoch sind die Escape Rooms geschlossen (außer für Firmen und Schulklassen).');
     if(age(s)<16&&g!=='schule') r.notes.push('Unter 16 nur mit erwachsener Begleitung.');
     if(c.rooms.some(x=>x.levels)) r.notes.push(endzeitEasy(s)?'Endzeit spielt ihr in der Anfänger-Variante. Der Finder wählt im Shop den passenden Anfänger-Tarif vor.':'Endzeit spielt ihr in der normalen, schweren Variante. Der Finder wählt im Shop den passenden Tarif vor.');
-    r.notes.push(g==='schule'?'Bitte fragt frühzeitig an, am besten einige Wochen im Voraus. Für Schulklassen planen wir die Spielleitung extra ein.'
+    r.notes.push(g==='schule'&&k>2&&!schoolWeekend(s)?'Mit 3 oder 4 Räumen gleichzeitig unter der Woche bitte frühzeitig buchen, am besten einige Wochen im Voraus. Dann planen wir genug Spielleiter für euch ein.'
       :s.date&&daysUntil(s.date)===0?'Für heute ruft bitte kurz an, ob es noch klappt: 07131 / 124 06 84.':'Buchbar bis 5 Stunden vorher.');
     return r;
   }
@@ -496,7 +495,7 @@ const V={
  klasse(){return frame(q('Welche Klassenstufe?','Danach wählen wir Tour und Schwierigkeit.',summaryChips())+tilesHTML([
    {act:'klasse',img:'klasse-5-7',val:'5-7',label:'Klasse 5 bis 7',em:emNum('5–7','Klasse'),sub:'Einsteigerfreundliche Fantasy-Tour',icon:'portal',t:TINTS.b,sel:S.klasse==='5-7'},
    {act:'klasse',img:'klasse-8',val:'8',label:'Klasse 8',em:emNum('8','Klasse'),sub:'Agenten-Tour mit vereinfachter Route',icon:'target',t:TINTS.a,sel:S.klasse==='8'},
-   {act:'klasse',img:'klasse-9',val:'9+',label:'Ab Klasse 9',em:emNum('9+','Klasse'),sub:'Outdoor oder Escape Room (bis 12, am Wochenende bis 24 Schüler)',icon:'trophy',t:TINTS.c,sel:S.klasse==='9+'}],3,'keepgrid emblem'))},
+   {act:'klasse',img:'klasse-9',val:'9+',label:'Ab Klasse 9',em:emNum('9+','Klasse'),sub:'Outdoor oder Escape Room bis 24 Schüler',icon:'trophy',t:TINTS.c,sel:S.klasse==='9+'}],3,'keepgrid emblem'))},
  date(){const t=isoToday();
    return frame(q('Steht euer Termin schon fest?','Dann zeigen wir euch die passenden Tarife und wählen das Datum im Shop schon vor.',summaryChips())+
    `<div class="stage"><div class="sizer"><div class="stepper"><div class="lbl"><label for="dpick"><b>Euer Wunschtermin</b></label><span>${S.date?fmtDate(S.date):'Datum auswählen'}</span></div>
@@ -528,7 +527,7 @@ const V={
    const st=ioState(S);let forced='';
    if(st.forced==='out'&&S.group!=='schule'&&total(S)>24) forced='Ab 25 Personen geht es nach draußen. Drinnen spielen höchstens 24 Personen parallel.';
    else if(st.forced==='out'&&S.group==='kgb') forced='Drinnen geht ein Kindergeburtstag mit bis zu 5 Kindern ab 13 Jahren und einem Erwachsenen.';
-   else if(st.forced==='out'&&S.group==='schule') forced=S.klasse==='9+'&&total(S)>12&&total(S)<=24&&!schoolWeekend(S)?'Unter der Woche spielen Schulklassen in bis zu 2 Escape Rooms gleichzeitig, also mit bis zu 12 Schülern. Am Wochenende gehen alle 4 Räume für bis zu 24 Schüler.':'Escape Rooms gibt es für Schulklassen ab Klasse 9 und bis 24 Schüler.';
+   else if(st.forced==='out'&&S.group==='schule') forced='Escape Rooms gibt es für Schulklassen ab Klasse 9 und bis 24 Schüler.';
    else if(st.forced==='in'&&S.group==='schule') forced='Outdoor-Touren für Schulklassen gibt es ab 12 Schülern.';
    const isOut=fav.type==='out',n=total(S);
    const it=isOut?fav.tour:fav.rooms[0];
