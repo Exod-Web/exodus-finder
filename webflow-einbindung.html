@@ -1,0 +1,14 @@
+<!-- TEIL A: in Webflow > Startseite > Custom Code > "Inside <head> tag" -->
+<script>/* Exodus Erlebnis-Finder: Zugriff auf den QuinBook-Shop */(function(){var a=Element.prototype.attachShadow;if(!a)return;Element.prototype.attachShadow=function(o){var r=a.call(this,o);try{if(this.id==="venuedoo")window.__exfShopRoot=r}catch(e){}return r}})();</script>
+
+<!-- TEIL B: in Webflow > Startseite > Custom Code > "Before </body> tag" -->
+<script>
+/* Exodus Erlebnis-Finder – Einstellungen. Bild-Links aus Webflow > Assets hier eintragen. */
+window.EXODUS_FINDER={images:{
+  'spielen':'', 'verschenken':'',
+  'gruppe-freunde':'', 'gruppe-familie':'', 'gruppe-kindergeburtstag':'',
+  'gruppe-schulklasse':'', 'gruppe-firma':'', 'gruppe-jga':'',
+  'drinnen':'', 'draussen':''
+}};
+</script>
+<script src="https://cdn.jsdelivr.net/gh/Exod-Web/exodus-finder@1.1.0/exodus-finder.min.js" defer></script>
