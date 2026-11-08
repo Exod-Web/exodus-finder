@@ -121,6 +121,12 @@ function outdoorOptions(s,loc){
   const L=LOCS.find(l=>l.id===(loc||'hn'));
   return TOURS.filter(t=>tourOK(t,s)&&L.tours.includes(t.id)).map(t=>({type:'out',tour:t}));
 }
+/* Nervenkitzel nur fragen, wenn "entspannt" und "spannend" zu einer anderen Empfehlung führen */
+let _thrKey=null,_thrVal=true;
+function thrillMatters(s){const key=JSON.stringify([s.group,s.n,s.adults,s.kids,s.age,s.klasse,s.io,s.exp,s.date,s.day,s.loc]);
+  if(key===_thrKey)return _thrVal;
+  const fav=t=>{const c=candidates(Object.assign({},s,{thrill:t,pick:0}))[0];return c?(c.rooms?c.rooms.map(r=>r.id).join('+'):c.tour.id+'@'+(c.loc||'')):''};
+  _thrKey=key;_thrVal=fav('calm')!==fav('spicy');return _thrVal}
 function ioState(s){
   const i=indoorOptions(s).length>0,o=outdoorOptions(s).length>0||eligibleLocs(s).some(l=>outdoorOptions(s,l.id).length);
   return {i,o,ask:i&&o,forced:i&&!o?'in':!i&&o?'out':null};
@@ -434,7 +440,7 @@ function steps(){
   if(ioState(S).ask) L.push('io');
   if(!['kgb','schule'].includes(S.group)) L.push('exp');
   // Nervenkitzel trennt nur zwischen Escape Rooms (Touren sind alle gleich entspannt) – daher nur fragen, wenn drinnen in Frage kommt
-  if(!['kgb','schule'].includes(S.group)&&!(S.group==='familie'&&age(S)<13)&&effIO(S)!=='out'&&indoorOptions(S).length>1) L.push('thrill');
+  if(!['kgb','schule'].includes(S.group)&&!(S.group==='familie'&&age(S)<13)&&effIO(S)!=='out'&&indoorOptions(S).length>1&&thrillMatters(S)) L.push('thrill');
   if(['familie','kgb','firma'].includes(S.group)&&!S.date) L.push('day');
   if(needOrt(S)) L.push('ort');
   L.push('result');return L;
