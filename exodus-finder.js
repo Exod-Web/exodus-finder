@@ -205,7 +205,7 @@ const pad2=x=>String(x).padStart(2,'0');
 function isoToday(){const d=new Date();return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`}
 const dateObj=iso=>new Date(iso+'T12:00:00');
 function dayOf(iso){const w=dateObj(iso).getDay();return w===0?'so':w===6?'sa':w>=4?'dofr':'momi'}
-function fmtDate(iso){return dateObj(iso).toLocaleDateString(EN?'en-GB':'de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'})}
+function fmtDate(iso){return EN?dateObj(iso).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).replace(/,/g,''):dateObj(iso).toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'})}
 const daysUntil=iso=>Math.round((dateObj(iso)-dateObj(isoToday()))/864e5);
 const isWinter=iso=>!iso||[10,11,0,1].includes(dateObj(iso).getMonth());
 /* Freie Termine (aus dem Shop gelesen, s.avail = {date, missing, map:{Produktname:[{t,state}]}}) */
