@@ -8,7 +8,7 @@ Erlebnis-Finder für exodus-hn.de (Webflow). Eingebunden über jsDelivr mit fest
 - `exodus-finder.js` – lesbarer Quelltext
 - `webflow-einbindung.html` – Code für Webflow (Teil A in den Head, Teil B vor </body>)
 
-Aktueller Stand: 1.4.4 (Terminfrage, freie Termine aus dem QuinBook-Shop, Poster und Gutschein-Bilder aus img/, Poster-Liste, 7. Person für Firmen am Schließtag).
+Aktueller Stand: 1.5.0 (Terminfrage, freie Termine aus dem QuinBook-Shop, Poster und Gutschein-Bilder aus img/, Poster-Liste, 7. Person für Firmen am Schließtag).
 
 Neue Version: Datei ersetzen, committen und in Webflow die Commit-Kennung im Link austauschen.
 Die feste Kennung sorgt dafür, dass jsDelivr sofort die neue Datei ausliefert.
@@ -36,3 +36,7 @@ Alle Parameter sind in `llms.txt` beschrieben. Der Finder startet bei der ersten
 ## llms.txt
 
 `llms.txt` beschreibt Angebot und Direktlinks für KI-Assistenten. In Webflow hochladen unter Site settings → SEO → LLMs.txt, danach veröffentlichen. Die Datei liegt dann unter https://exodus-hn.de/llms.txt.
+
+## Eingebettet statt Vollbild (ab 1.5.0)
+
+Steht auf der Seite `<div data-finder-teaser></div>`, läuft der ganze Finder an dieser Stelle mit transparentem Hintergrund; die Seite bleibt normal scrollbar. Knöpfe mit `data-finder-open` und Links auf `#finder` scrollen zum Finder. Optionen in `window.EXODUS_FINDER`: `scrollOffset` (Höhe einer festen Navigation in px, Standard 90), `overlay:true` (alte Vollbild-Variante).
