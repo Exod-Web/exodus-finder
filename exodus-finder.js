@@ -861,13 +861,14 @@ function styleWfForm(){if(CFG.styleForm===false||document.getElementById('exf-fo
   const H='[data-finder-teaser] .w-form,#exodus-finder .w-form';
   st.textContent=`${H}{margin:0;font-family:'bahnschrift-semicondensed','Bahnschrift SemiCondensed','Barlow Semi Condensed',sans-serif;color:#E0E0E0}
 ${H} label{display:block;margin:14px 0 6px;font-weight:700;font-size:15px;color:#E0E0E0}
-${H} input:not([type=submit]):not([type=checkbox]),${H} textarea,${H} select{display:block;width:100%;box-sizing:border-box;margin:0;padding:12px 14px;height:auto;min-height:46px;background:#031012;border:1px solid #1E393D;border-radius:0;color:#fff;font:inherit;font-size:16px;box-shadow:none}
+${H} input:not([type=submit]):not([type=checkbox]):not([type=hidden]),${H} textarea,${H} select{display:block;width:100%;box-sizing:border-box;margin:0;padding:12px 14px;height:auto;min-height:46px;background:#031012;border:1px solid #1E393D;border-radius:0;color:#fff;font:inherit;font-size:16px;box-shadow:none}
 ${H} input:not([type=submit]):focus,${H} textarea:focus{border-color:#00A59E;outline:2px solid rgba(0,165,158,.35);outline-offset:0}
 ${H} input::placeholder,${H} textarea::placeholder{color:#6F8786}
 ${H} input[type=submit]{display:block;width:100%;margin-top:18px;padding:14px 18px;background:#AE8F53;border:0;border-radius:0;color:#031012;font:inherit;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
 ${H} input[type=submit]:hover{background:#C4A66B}
 ${H} .w-form-done{margin-top:12px;padding:16px;background:transparent;border:1px solid #00A59E;color:#fff;text-align:left}
-${H} .w-form-fail{margin-top:12px;padding:14px;background:transparent;border:1px solid #E39A5B;color:#fff}`;
+${H} .w-form-fail{margin-top:12px;padding:14px;background:transparent;border:1px solid #E39A5B;color:#fff}
+${H} [name="Angebot"],${H} [name="Anfrage"]{display:none!important}`;
   document.head.appendChild(st)}
 /* Formular finden: über die ID oder an den Feldern "Angebot" und "Anfrage" (falls Webflow eine eigene ID vergeben hat) */
 function wfForm(){const f=document.getElementById(WEBFLOW_FORM_ID);if(f&&f.tagName==='FORM')return f;if(f){const i=f.querySelector('form');if(i)return i}
