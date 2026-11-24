@@ -8,7 +8,7 @@ Erlebnis-Finder für exodus-hn.de (Webflow). Eingebunden über jsDelivr mit fest
 - `exodus-finder.js` – lesbarer Quelltext
 - `webflow-einbindung.html` – Code für Webflow (Teil A in den Head, Teil B vor </body>)
 
-Aktueller Stand: 1.6.1 (Spickzettel nur, wenn der Finder nicht alles selbst erledigt, am Handy als Leiste; Uhrzeit im Finder wählbar, der Finder legt den Termin samt Tarif, Teilnehmern und Extras selbst in den Warenkorb; EXIT-Spiel nur, solange es im Shop angeboten wird – erzwingen mit `exitGame:true` in window.EXODUS_FINDER; Scrollen zum Shop gleicht nachladende Bilder aus).
+Aktueller Stand: 1.7.0 (Deutsch und Englisch: Der Finder folgt der Seitensprache, auf /en/ englisch, und wählt im Shop die englische Spielsprache; fest einstellbar mit `lang:'de'|'en'` in window.EXODUS_FINDER. Freie Termine erst lesen, wenn der Shop sie geladen hat. Uhrzeit im Finder wählbar, Termin direkt in den Warenkorb; Spickzettel nur bei Bedarf, am Handy als Leiste; EXIT-Spiel nur, solange es im Shop angeboten wird).
 
 Neue Version: Datei ersetzen, committen und in Webflow die Commit-Kennung im Link austauschen.
 Die feste Kennung sorgt dafür, dass jsDelivr sofort die neue Datei ausliefert.
