@@ -8,7 +8,7 @@ Erlebnis-Finder für exodus-hn.de (Webflow). Eingebunden über jsDelivr mit fest
 - `exodus-finder.js` – lesbarer Quelltext
 - `webflow-einbindung.html` – Code für Webflow (Teil A in den Head, Teil B vor </body>)
 
-Aktueller Stand: 1.7.2 (Schulklassen: Klassenstufe statt Alter, Formularfelder Wunschtermin und Wunschuhrzeit; Burg Stettenfels nur mit „Excaliburs Erben“, Buchung über /excaliburs-erben; Schulklassen ohne Shop-Startzeiten, Wunschuhrzeit per Anfrage; Deutsch und Englisch: Der Finder folgt der Seitensprache, auf /en/ englisch, und wählt im Shop die englische Spielsprache; fest einstellbar mit `lang:'de'|'en'` in window.EXODUS_FINDER. Freie Termine erst lesen, wenn der Shop sie geladen hat. Uhrzeit im Finder wählbar, Termin direkt in den Warenkorb; Spickzettel nur bei Bedarf, am Handy als Leiste; EXIT-Spiel nur, solange es im Shop angeboten wird).
+Aktueller Stand: 1.7.3 (Bilder per Webflow austauschbar mit data-finder-img; Schulklassen draußen 15 € bis Klasse 9, 20 € ab Klasse 10, S-Bahn statt Parken/Einkehr; Heuchelberger Warte nicht barrierefrei; Schulklassen: Klassenstufe statt Alter, Formularfelder Wunschtermin und Wunschuhrzeit; Burg Stettenfels nur mit „Excaliburs Erben“, Buchung über /excaliburs-erben; Schulklassen ohne Shop-Startzeiten, Wunschuhrzeit per Anfrage; Deutsch und Englisch: Der Finder folgt der Seitensprache, auf /en/ englisch, und wählt im Shop die englische Spielsprache; fest einstellbar mit `lang:'de'|'en'` in window.EXODUS_FINDER. Freie Termine erst lesen, wenn der Shop sie geladen hat. Uhrzeit im Finder wählbar, Termin direkt in den Warenkorb; Spickzettel nur bei Bedarf, am Handy als Leiste; EXIT-Spiel nur, solange es im Shop angeboten wird).
 
 Neue Version: Datei ersetzen, committen und in Webflow die Commit-Kennung im Link austauschen.
 Die feste Kennung sorgt dafür, dass jsDelivr sofort die neue Datei ausliefert.
@@ -40,3 +40,15 @@ Alle Parameter sind in `llms.txt` beschrieben. Der Finder startet bei der ersten
 ## Eingebettet statt Vollbild (ab 1.5.0)
 
 Steht auf der Seite `<div data-finder-teaser></div>`, läuft der ganze Finder an dieser Stelle mit transparentem Hintergrund; die Seite bleibt normal scrollbar. Knöpfe mit `data-finder-open` und Links auf `#finder` scrollen zum Finder. Optionen in `window.EXODUS_FINDER`: `scrollOffset` (Höhe einer festen Navigation in px, Standard 90), `overlay:true` (alte Vollbild-Variante).
+
+## Bilder über Webflow austauschen
+
+Bilder aus Webflow haben Vorrang vor den Bildern in `img/` auf GitHub. Fehlt ein Bild in Webflow oder lädt es nicht, nimmt der Finder das GitHub-Bild.
+
+Einrichtung (einmalig): Auf der Seite mit dem Finder einen Div Block anlegen (Display: none). Darin für jedes Bild ein Image-Element mit dem Custom Attribute `data-finder-img` = Schlüssel (siehe unten). Austauschen: Bild-Element auswählen, im Asset-Panel ein neues Bild wählen, veröffentlichen.
+
+| Art | Format | Schlüssel |
+|---|---|---|
+| Bildkacheln (Fragen) | 3:2, z. B. 1200 × 800 | `spielen`, `verschenken`, `gruppe-freunde`, `gruppe-familie`, `gruppe-kindergeburtstag`, `gruppe-schulklasse`, `gruppe-firma`, `gruppe-jga`, `drinnen`, `draussen`, `egal`, `ort-hn`, `ort-sin`, `ort-nsu`, `ort-sha`, `ort-stf`, `ort-hw` |
+| Plakate (Räume und Touren) | 5:7, z. B. 750 × 1050 | `er1-flynn`, `er2-endzeit`, `er3-leonardo`, `er4-zombielabor`, `ot1-mindfall`, `ot2-blackout`, `ot3-portal`, `ot4-excalibur` |
+| Gutscheine und Verpackungen | 3:2, z. B. 1200 × 800, Motiv mit Rand | `gutschein-pdf`, `hc-klassik`, `hc-geburtstag`, `hc-hochzeit`, `hc-ostern`, `hc-weihnachten`, `pop-feuerwerk`, `pop-katze`, `pop-gaensebluemchen`, `pop-geschenkbox`, `pack-ship`, `exit-game` |

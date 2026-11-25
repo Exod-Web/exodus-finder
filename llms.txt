@@ -22,7 +22,7 @@ Alle Parameter sind optional und werden mit `&` verbunden. Der Finder startet be
 | `personen` | Zahl, z. B. `4` | Anzahl Personen (nicht bei `familie`/`kindergeburtstag`) |
 | `kinder`, `erwachsene` | Zahlen | Nur bei `familie` und `kindergeburtstag` |
 | `alter` | Zahl | Alter des jüngsten Kindes (Familie/Kindergeburtstag) |
-| `klasse` | `5-7`, `8`, `9` (oder höher) | Klassenstufe bei `schulklasse` |
+| `klasse` | `5-7`, `8`, `9`, `10` (oder höher) | Klassenstufe bei `schulklasse` |
 | `datum` | `JJJJ-MM-TT`, `heute`, `morgen`, Wochentag (`samstag` = der nächste Samstag) oder `offen` | Wunschtermin |
 | `art` | `drinnen` (Escape Room), `draussen` (Outdoor-Tour), `egal` | Indoor oder Outdoor |
 | `erfahrung` | `neu`, `etwas`, `profi` | Escape-Erfahrung der Gruppe |
@@ -65,7 +65,7 @@ Standard-Tour 2–3 Stunden, Short-Tour 1,5–2 Stunden. Von 3 bis 250 Spielern.
 
 Orte: Heilbronn Innenstadt, Sinsheim, Neckarsulm, Schwäbisch Hall; für Firmen zusätzlich Heuchelberger Warte (dort nur als Short-Tour).
 Burg Stettenfels: nur die Tour „Excaliburs Erben“ (in Kooperation mit der Burg, ab 12 Jahren, 2 bis 6 Spieler pro Gruppe, bis 48 Personen, etwa 2 Stunden am eigenen Smartphone, nur auf Deutsch). Preis je Gruppe: 60 € für 2 Spieler, jede weitere Person 24 €. Buchung nur auf https://www.exodus-hn.de/excaliburs-erben
-Schulklassen: Termin und Uhrzeit (auch vormittags) per Anfrage, nicht über die Startzeiten im Shop.
+Schulklassen: Termin und Uhrzeit (auch vormittags) per Anfrage, nicht über die Startzeiten im Shop. Preise Schulklassen: Escape Rooms 28 € pro Schüler (ab Klasse 9), Outdoor-Touren 15 € pro Schüler bis einschließlich Klasse 9, ab Klasse 10 20 € pro Schüler. Anreise mit S-Bahn bis Haltestelle Heilbronn Rathaus.
 
 ## Gutscheine
 
